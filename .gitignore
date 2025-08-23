@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.env
+.env.*
+pgdata/
+pgadmin-data/
+backend/keys/*.key
+backend/keys/*.pem
+*.pfx
+*.crt
+*.key
