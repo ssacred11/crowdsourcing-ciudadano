@@ -9,3 +9,5 @@ backend/keys/*.pem
 *.pfx
 *.crt
 *.key
+
+!.env.example
