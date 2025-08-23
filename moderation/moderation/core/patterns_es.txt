@@ -1,0 +1,4 @@
+# insultos básicos (ejemplo; ampliar con cuidado)
+\b(weon|weón|qlo|culiao|culi(a|o))\b
+# spam obvio
+gratis\s*100%
