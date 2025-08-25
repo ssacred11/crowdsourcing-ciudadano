@@ -1,4 +1,6 @@
+# =========================
 # Python
+# =========================
 __pycache__/
 *.pyc
 *.pyo
@@ -7,15 +9,43 @@ __pycache__/
 .eggs/
 .venv/
 
+# =========================
+# Entornos / Variables
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Datos locales (Postgres/pgAdmin)
+# =========================
+pgdata/
+pgadmin-data/
+
+# =========================
+# Claves / Certificados
+# =========================
+backend/keys/*.key
+backend/keys/*.pem
+*.pfx
+*.crt
+*.key
+
+# =========================
 # Módulo moderation
+# =========================
 moderation/.venv/
 moderation/*.egg-info/
 
-# Node/Flutter (por si acaso)
+# =========================
+# Node / Flutter
+# =========================
 node_modules/
 .dart_tool/
 build/
 
-# IDE
+# =========================
+# IDE / SO
+# =========================
 .vscode/
 .idea/
