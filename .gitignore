@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+.venv/
+
+# Módulo moderation
+moderation/.venv/
+moderation/*.egg-info/
+
+# Node/Flutter (por si acaso)
+node_modules/
+.dart_tool/
+build/
+
+# IDE
+.vscode/
+.idea/

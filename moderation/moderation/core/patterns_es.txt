@@ -1,0 +1,18 @@
+# Etiqueta la categoría con {categoria} al inicio de la línea para ponderar el score.
+
+# insultos (peso 2 c/u)
+{insulto}\b(weon|weón|qlo|culiao|culi(a|o)|idiota|imbécil|estúpido)\b
+
+# amenazas (peso 3)
+{amenaza}\b(te (voy|iremos) a (pegar|golpear|romper|reventar))\b
+{amenaza}\b(te (mato|destruyo|quemo))\b
+
+# violencia (peso 3)
+{violencia}\b(arma|cuchillo|pistola|golp(e|ear)|pelea|agresión)\b
+
+# contenido sensible (peso 2)
+{contenido_sensible}\b(acoso|bullying|hostigar|amenazar)\b
+
+# spam (peso 1)
+{spam}gratis\s*100%
+{spam}\b(click aquí|haz clic|gana dinero)\b

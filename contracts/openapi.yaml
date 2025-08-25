@@ -1,0 +1,95 @@
+openapi: 3.0.3
+info:
+  title: Crowdsourcing Ciudadano - API
+  version: 0.1.0
+servers:
+  - url: https://staging.api.example.com
+
+paths:
+  /auth/login:
+    post:
+      summary: Login con usuario/clave (mock SSO)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required: [username]
+      responses:
+        "200":
+          description: JWT emitido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  token_type:
+                    type: string
+                    example: bearer
+
+  /incidents:
+    post:
+      summary: Crear incidencia
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title: {type: string}
+                description: {type: string}
+                type_id: {type: integer}
+                area_id: {type: integer}
+              required: [title, description]
+      responses:
+        "201":
+          description: Creado
+    get:
+      summary: Listar incidencias (feed)
+      parameters:
+        - in: query
+          name: status
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+
+  /incidents/{id}:
+    patch:
+      summary: Cambiar estado
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+              required: [status]
+      responses:
+        "200":
+          description: OK
+
+  /health:
+    get:
+      summary: Healthcheck
+      responses:
+        "200":
+          description: OK
+
+components: {}
