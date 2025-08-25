@@ -1,5 +1,7 @@
 from fastapi import FastAPI, Request
 from .routers import auth, incidents, health
+from fastapi.middleware.cors import CORSMiddleware
+import os
 
 app = FastAPI(title="Crowdsourcing Ciudadano API", version="0.1.0")
 
@@ -14,3 +16,13 @@ async def add_tenant_to_request(request: Request, call_next):
 app.include_router(health.router, prefix="/health", tags=["health"])
 app.include_router(auth.router, prefix="/auth", tags=["auth"])
 app.include_router(incidents.router, prefix="/incidents", tags=["incidents"])
+
+# CORS
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,http://localhost:5173")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[o.strip() for o in ALLOWED_ORIGINS.split(",") if o.strip()],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
